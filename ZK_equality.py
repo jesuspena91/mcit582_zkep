@@ -7,8 +7,11 @@ def ZK_equality(G,H):
 
     # Secret randomizers and secret message
     r1 = Secret(utils.get_random_num(bits=128))
+    r2 = Secret(utils.get_random_num(bits=128))
+    m = Secret()
+
     C1 = r1 * G
-    C2 = 1
+    C2 = r1 * H + m * G
     D1 = 1
     D2 = 1
     zk_proof = 1
