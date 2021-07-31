@@ -20,4 +20,4 @@ def ZK_equality(G,H):
     zk_proof = stmt.prove()
 
     #Return two ciphertexts and the proof
-    return (C1,C2), (D1,D2), zk_proof
+    return (C1,C2), (D1,D2), stmt.verify(zk_proof)
