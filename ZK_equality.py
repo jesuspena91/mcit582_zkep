@@ -10,8 +10,11 @@ def ZK_equality(G,H):
     r2 = Secret(utils.get_random_num(bits=128))
     m = Secret(utils.get_random_num(bits=128))
 
-    C1 = r1 * G
-    C2 = r1 * H + m * G
+    C1 = pow(G, r1, r2)
+    C2 = (pow(H, r1, r2) * (m % r2)) % r2
+
+    # C1 = r1 * G
+    # C2 = r1 * H + m * G
     D1 = r2 * G
     D2 = r2 * H + m * G
 
